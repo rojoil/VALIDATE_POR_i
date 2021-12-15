@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ПОРЕЙ I сезон: результаты</title>
+</head>
+
+
+
+<body style="display: flex; justify-content: space-around; align-items: center; flex-direction: column;">
+    <input type="text" onkeypress = "handle(event)" style="margin-top: 150px; width: 95%;" placeholder="Введите регистрационный номер сертификата или диплома и нажмите ENTER">
+    <div id="respond" style="font-weight: bold;"></div>
+</body>
+
+
+<script defer>
+    "use strict";
+    sessionStorage.setItem("02-04-181221-001","Сертификат участника заключительного этапа, Б*****ая А. О.");
+
+    let input = document.querySelector("input");
+    let val = document.querySelector("#respond");
+    
+    function handle(ev) {
+        if(ev.keyCode === 13){
+        ev.preventDefault();
+        let k = false;
+            if (sessionStorage.getItem(input.value)) {
+            val.style.color = "green";
+            val.innerHTML = sessionStorage.getItem(input.value);
+            k = true;
+            } else {
+            val.style.color = "red";
+            val.innerHTML = "Ничего не найдено."
+            }
+        }
+    }
+
+</script>
+
+</html>
