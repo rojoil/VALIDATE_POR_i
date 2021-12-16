@@ -40,6 +40,11 @@
         }
     }
 
+    window.onclose = (ev) => {
+        sessionStorage.clear();
+        ev.preventDefault();
+    }
+    
 </script>
 
 </html>
